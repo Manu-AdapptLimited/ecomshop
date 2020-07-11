@@ -6,18 +6,18 @@ class LoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
-   Future<FirebaseUser> login(String email, String pass) async {
-     FirebaseAuth _auth = FirebaseAuth.instance;
-     try {
-       AuthResult result = await _auth.createUserWithEmailAndPassword(
-           email: email, password: pass);
-       FirebaseUser user = result.user;
-       return user;
-     } catch (e) {
-       print(e);
-       return null;
-     }
-   }
+  Future<FirebaseUser> login(String email, String pass) async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: pass);
+      FirebaseUser user = result.user;
+      return user;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Registration",
+                Text("Login",
                     style: TextStyle(
                       color: Colors.lightBlue,
                       fontSize: 36,
@@ -41,9 +41,8 @@ class LoginScreen extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
-                   controller: _emailController,
+                  controller: _emailController,
                   decoration: InputDecoration(
-                   
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.transparent),
                           borderRadius:
@@ -64,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
-                  controller:_passController,
+                  controller: _passController,
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.transparent),
@@ -89,17 +88,19 @@ class LoginScreen extends StatelessWidget {
                   width: double.infinity,
                   child: FlatButton(
 //                    onPressed: (){},
-                     onPressed: () async {
-                       final email = _emailController.text.toString().trim();
-                       final pass = _passController.text.toString().trim();
+                    onPressed: () async {
+                      final email = _emailController.text.toString().trim();
+                      final pass = _passController.text.toString().trim();
 
-                       FirebaseUser user = await login(email, pass);
+                      FirebaseUser user = await login(email, pass);
 
-                       if (user != null) {
-                         Navigator.of(context).push(MaterialPageRoute(
-                             builder: (context) => HomePage(name:user.displayName,imageUrl:user.photoUrl)));
-                       }
-                     },
+                      if (user != null) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HomePage(
+                                name: user.displayName,
+                                imageUrl: user.photoUrl)));
+                      }
+                    },
                     child: Text("Login"),
                     textColor: Colors.white,
                     padding: EdgeInsets.all(16.0),
