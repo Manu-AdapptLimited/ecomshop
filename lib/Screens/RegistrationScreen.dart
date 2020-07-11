@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomshop/Screens/LoginScreen.dart';
 
+import '../HomePage.dart';
+
 class RegistrationScreen extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
@@ -163,6 +165,25 @@ class RegistrationScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15.0)),
                   ),
+                ),
+                SizedBox(height:10.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 
+                    children: <Widget>[
+                      Text("If you are already register" , style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.amber
+                      ),),
+                      OutlineButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => LoginScreen()));
+                      },
+                      child: Text("Login Here"),
+                      
+                      )
+                    ],
                 )
               ],
             )),

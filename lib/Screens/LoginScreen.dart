@@ -99,6 +99,8 @@ class LoginScreen extends StatelessWidget {
                             builder: (context) => HomePage(
                                 name: user.displayName,
                                 imageUrl: user.photoUrl)));
+                      } else {
+                        print("error"); 
                       }
                     },
                     child: Text("Login"),
