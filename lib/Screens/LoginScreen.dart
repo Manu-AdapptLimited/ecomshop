@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
 
                       FirebaseUser user = await login(email, pass);
 
-                      if (user != null) {
+                      if (user!=null) {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => HomePage(
                                 name: user.displayName,
