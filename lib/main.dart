@@ -1,3 +1,5 @@
+import 'package:ecomshop/Screens/LoginScreen.dart';
+import 'package:ecomshop/Screens/SinginChoice.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomshop/Model/Products.dart';
 import 'package:ecomshop/cart_screen.dart';
@@ -22,7 +24,7 @@ void main() {
       ),
       title: 'ShopApp',
 
-      home: RegistrationScreen(),
+      home:LoginScreen(),
       // routes: {
       //   CartScreen.routeName:(ctx)=>CartScreen(),
       // },
