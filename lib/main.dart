@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'HomePage.dart';
 import 'Model/Cart.dart';
 import 'Model/Products.dart';
+import 'Screens/MobielLogin.dart';
 import 'Screens/RegistrationScreen.dart';
 
 void main() {
@@ -24,7 +25,7 @@ void main() {
       ),
       title: 'ShopApp',
 
-      home:LoginScreen(),
+      home:SigninChoice(),
       // routes: {
       //   CartScreen.routeName:(ctx)=>CartScreen(),
       // },
