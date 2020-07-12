@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'HomePage.dart';
 
+
 class EmptyCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,9 @@ class EmptyCart extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   "Click Here to Purchase",

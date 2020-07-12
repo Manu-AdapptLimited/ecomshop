@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:ecomshop/HomePage.dart';
 import 'package:ecomshop/Model/Cart.dart';
@@ -33,8 +34,9 @@ class CartScreen extends StatelessWidget {
                   color: Colors.redAccent,
                   onPressed: () {
                     cart.clear();
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => HomePage()));
+                    Navigator.of(context).pop();
                   },
                   child: Text(
                     "Empty Cart",

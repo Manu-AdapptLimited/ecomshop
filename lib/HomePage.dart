@@ -2,18 +2,18 @@ import 'package:ecomshop/Screens/SinginChoice.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomshop/Cart_header.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-// import 'package:ecomshop/EmptyCart.dart';
-// import 'package:ecomshop/cart_screen.dart';
+
 import 'ShopPage.dart';
 
 class HomePage extends StatefulWidget {
-  // HomePage({Key key}) : super(key: key);
+  HomePage({Key key, this.detailsUser, this.name, this.imageUrl, this.user})
+      : super(key: key);
 
   final name;
   final imageUrl;
   final user;
   final UserDetails detailsUser;
-  HomePage({this.name, this.imageUrl, this.user, this.detailsUser});
+  // HomePage({this.name, this.imageUrl, this.user, this.detailsUser});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GoogleSignIn _gsignIn = GoogleSignIn();
+  
 
   String title = "Shop";
   @override
@@ -55,17 +56,13 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountName: Text(widget.detailsUser.userName),
-                accountEmail: Text(widget.detailsUser.userEmail),
+                accountName: Text(widget.detailsUser.userName.toString()),
+                accountEmail: Text(widget.detailsUser.userEmail.toString()),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
                     radius: 50.0,
-                    backgroundImage: NetworkImage(widget.detailsUser.photoUrl),
-                    // backgroundColor: Colors.grey,
-                    // child: Icon(
-                    //   Icons.person,
-                    //   color: Colors.white,
-                    // ),
+                    backgroundImage:
+                        NetworkImage(widget.detailsUser.photoUrl.toString()),
                   ),
                 ),
                 decoration: BoxDecoration(color: Colors.redAccent),
@@ -74,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   // Navigator.of(context).push(
                   //     MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.of(context).pop();
                 },
                 child: ListTile(
                   title: Text('Home'),
@@ -140,7 +138,8 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   _gsignIn.signOut();
                   print('signed out');
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SigninChoice()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SigninChoice()));
                 },
                 child: ListTile(
                   title: Text('Sign Out'),
