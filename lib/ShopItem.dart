@@ -1,3 +1,4 @@
+import 'package:ecomshop/Counter/ItemCounter.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomshop/Cart_header.dart';
 import 'AllProduct.dart';
@@ -28,16 +29,8 @@ class _ShopItemState extends State<ShopItem> {
             ),
             onPressed: () {},
           ),
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartHeader()));
-            },
-          )
+         ItemCounter()
+     
         ],
       ),
       body: ListView(

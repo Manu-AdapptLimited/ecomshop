@@ -28,7 +28,7 @@ class Cart with ChangeNotifier {
           (existingCartItem) => CartItem(
               id: DateTime.now().toString(),
               name: existingCartItem.name,
-              quantity: existingCartItem.quantity+1,
+              quantity: existingCartItem.quantity + 1,
               price: existingCartItem.price,
               image: existingCartItem.image));
     } else {
@@ -72,6 +72,7 @@ class Cart with ChangeNotifier {
     _items = {};
     notifyListeners();
   }
+
   void increament(String pdtid, String name, double price, String image) {
     if (_items.containsKey(pdtid)) {
       _items.update(
@@ -79,7 +80,7 @@ class Cart with ChangeNotifier {
           (existingCartItem) => CartItem(
               id: DateTime.now().toString(),
               name: existingCartItem.name,
-              quantity: existingCartItem.quantity+1,
+              quantity: existingCartItem.quantity + 1,
               price: existingCartItem.price,
               image: existingCartItem.image));
     } else {
@@ -95,6 +96,7 @@ class Cart with ChangeNotifier {
     }
     notifyListeners();
   }
+
   void decreament(String pdtid, String name, double price, String image) {
     if (_items.containsKey(pdtid)) {
       _items.update(
@@ -102,15 +104,21 @@ class Cart with ChangeNotifier {
           (existingCartItem) => CartItem(
               id: DateTime.now().toString(),
               name: existingCartItem.name,
-              quantity: existingCartItem.quantity-1,
+              quantity: existingCartItem.quantity - 1,
               price: existingCartItem.price,
               image: existingCartItem.image));
-    } 
-    if(_items[pdtid].quantity ==0 ){
+    }
+    if (_items[pdtid].quantity == 0) {
       _items.remove(pdtid);
-
     }
     notifyListeners();
   }
 
+  int get totalCount {
+    var total = 0;
+    _items.forEach((key, cartItem) {
+      total += (cartItem.price * cartItem.quantity) as int;
+    });
+    return total;
   }
+}

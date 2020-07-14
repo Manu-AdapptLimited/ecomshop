@@ -9,8 +9,8 @@ class LoginScreen extends StatelessWidget {
   Future<FirebaseUser> login(String email, String pass) async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     try {
-      AuthResult result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: pass);
+      AuthResult result =
+          await _auth.signInWithEmailAndPassword(email: email, password: pass);
       FirebaseUser user = result.user;
       return user;
     } catch (e) {
@@ -94,13 +94,13 @@ class LoginScreen extends StatelessWidget {
 
                       FirebaseUser user = await login(email, pass);
 
-                      if (user!=null) {
+                      if (user != null) {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => HomePage(
                                 name: user.displayName,
                                 imageUrl: user.photoUrl)));
                       } else {
-                        print("error"); 
+                        print("error");
                       }
                     },
                     child: Text("Login"),

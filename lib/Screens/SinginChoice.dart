@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'LoginScreen.dart';
+
 class SigninChoice extends StatefulWidget {
   @override
   _SigninChoiceState createState() => _SigninChoiceState();
@@ -128,7 +130,7 @@ class _SigninChoiceState extends State<SigninChoice> {
                             child: Row(
                               children: <Widget>[
                                 Icon(
-                                  FontAwesomeIcons.phoneAlt,
+                                  FontAwesomeIcons.phoneSquareAlt,
                                   color: Color(0xffce107c),
                                 ),
                                 SizedBox(
@@ -149,36 +151,39 @@ class _SigninChoiceState extends State<SigninChoice> {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Container(
-                        width: 250.0,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: RaisedButton(
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Color(0xffffffff),
-                            child: Row(
-                              children: <Widget>[
-                                Icon(
-                                  FontAwesomeIcons.solidEnvelope,
-                                  color: Color(0xffce107c),
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  'sign with Email',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18.0,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Container(
+                      //   width: 250.0,
+                      //   child: Align(
+                      //     alignment: Alignment.center,
+                      //     child: RaisedButton(
+                      //       onPressed: () {
+                      //         Navigator.of(context).push(MaterialPageRoute(
+                      //             builder: (context) => LoginScreen()));
+                      //       },
+                      //       shape: RoundedRectangleBorder(
+                      //           borderRadius: BorderRadius.circular(30.0)),
+                      //       color: Color(0xffffffff),
+                      //       child: Row(
+                      //         children: <Widget>[
+                      //           Icon(
+                      //             FontAwesomeIcons.solidEnvelope,
+                      //             color: Color(0xffce107c),
+                      //           ),
+                      //           SizedBox(
+                      //             height: 10.0,
+                      //           ),
+                      //           Text(
+                      //             'sign with Email',
+                      //             style: TextStyle(
+                      //               color: Colors.black,
+                      //               fontSize: 18.0,
+                      //             ),
+                      //           )
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],

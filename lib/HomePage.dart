@@ -1,8 +1,14 @@
+import 'package:ecomshop/Counter/ItemCounter.dart';
 import 'package:ecomshop/Screens/SinginChoice.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ecomshop/Cart_header.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
+import 'Model/Cart.dart';
 import 'ShopPage.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,11 +27,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GoogleSignIn _gsignIn = GoogleSignIn();
-  
 
   String title = "Shop";
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<Cart>(context);
+   
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
@@ -40,16 +47,9 @@ class _HomePageState extends State<HomePage> {
               ),
               onPressed: () {},
             ),
-            IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CartHeader()));
-              },
-            )
+          
+           ItemCounter(),
+          
           ],
         ),
         drawer: Drawer(

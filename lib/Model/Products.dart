@@ -5,6 +5,7 @@ class Product with ChangeNotifier {
   final String name;
   final String img;
   final double price;
+  
 
   Product({this.id, this.img, this.name, this.price});
 }

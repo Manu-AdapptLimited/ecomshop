@@ -32,7 +32,8 @@ class PdtItem extends StatelessWidget {
             "\Rs$price",
             style: TextStyle(color: Colors.black),
           ),
-          trailing: IconButton(
+          trailing: 
+          IconButton(
               icon: Icon(Icons.add_shopping_cart),
               color: Colors.black,
               iconSize: 40.0,

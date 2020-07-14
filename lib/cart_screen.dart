@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecomshop/HomePage.dart';
 import 'package:ecomshop/Model/Cart.dart';
-// import 'package:ecomshop/ShopItem.dart';
 import 'package:ecomshop/cart_item.dart';
 import 'package:provider/provider.dart';
 
@@ -34,8 +33,7 @@ class CartScreen extends StatelessWidget {
                   color: Colors.redAccent,
                   onPressed: () {
                     cart.clear();
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => HomePage()));
+                    
                     Navigator.of(context).pop();
                   },
                   child: Text(
@@ -46,7 +44,7 @@ class CartScreen extends StatelessWidget {
                   color: Colors.redAccent,
                   onPressed: () {},
                   child: Text(
-                    "Payment",
+                    "Order Now",
                     style: TextStyle(fontSize: 20.0, color: Colors.white),
                   )),
             ],
