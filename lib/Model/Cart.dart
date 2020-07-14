@@ -114,11 +114,5 @@ class Cart with ChangeNotifier {
     notifyListeners();
   }
 
-  int get totalCount {
-    var total = 0;
-    _items.forEach((key, cartItem) {
-      total += (cartItem.price * cartItem.quantity) as int;
-    });
-    return total;
-  }
+ 
 }
